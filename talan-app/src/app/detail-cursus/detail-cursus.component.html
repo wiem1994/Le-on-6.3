@@ -1,0 +1,14 @@
+<!-- <div *ngIf="cursus" id="detail">
+    <p>Description : </p>
+    <p class="card-text">{{cursus.description}}</p>
+    <p>Mots clés : </p>
+    <p class="text-muted">{{cursus.motsCles}}</p>
+</div> -->
+<div *ngIf="cursus" class="card p-5" style="width: 18rem;" id="detail">
+    <div class="card-body">
+      <p>Description</p>
+      <h5 class="card-title">{{cursus.description}}</h5>
+      <p>Mots clés</p>
+      <p class="card-text">{{cursus.motsCles}}</p>
+    </div>
+  </div>
