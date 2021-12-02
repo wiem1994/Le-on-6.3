@@ -6,6 +6,10 @@ import { ListeCursusComponent } from './liste-cursus/liste-cursus.component';
 import { DetailCursusComponent } from './detail-cursus/detail-cursus.component';
 import { SortnamePipe } from './sortname.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AprentisComponent } from './aprentis/aprentis.component';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { AcceuilComponent } from './acceuil/acceuil.component';
+
 
 @NgModule({
   declarations: [
@@ -13,11 +17,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     ListeCursusComponent,
     DetailCursusComponent,
-    SortnamePipe
+    SortnamePipe,
+    routingComponents,
+    AcceuilComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

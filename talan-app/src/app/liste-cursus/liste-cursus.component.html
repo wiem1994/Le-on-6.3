@@ -8,57 +8,51 @@
     </div>
   </div>
 </div>
-<!-- <form style="width:100%;margin-top:50px;margin-bottom: 50px;" class="d-flex flex-column align-items-center" #userForm="ngForm">
-  {{ userForm.value | json }}
-  <div class="mb-3 form-group">
-    <label for="exampleInputEmail1" class="form-label">Nom</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" style="width:500px;" ngModel name="nom">
-  </div>
-  <div class="mb-3 form-group">
-    <label for="exampleInputDescription" class="form-label">Description</label>
-    <input type="text" class="form-control" id="exampleInputDescription" style="width:500px;" ngModel name="description">
-  </div>
-  <div class="mb-3 form-group">
-    <label for="exampleInputImage" class="form-label">Lien de l'image</label>
-    <input type="text" class="form-control" id="exampleInputImage" style="width:500px;" ngModel name="url image">
-  </div>
-  <div class="mb-3 form-group">
-    <label for="exampleInputMotsCles" class="form-label">Mots clés</label>
-    <input type="text" class="form-control" id="exampleInputMotsCles" style="width:500px;" ngModel name="mots clés">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
 
-<form [formGroup]="registrationForm">
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
   <div>
     <label for="nom">
       Nom
     </label>
-    <input id="nom" type="text" formControlName="nom" [class.is-invalid]="registrationForm.get('nom').invalid && registrationForm.get('nom').touched">
-  </div>
+    <input id="nom" type="text" formControlName="nom">
+ 
+    <div *ngIf="registrationForm.controls['nom'].invalid && registrationForm.controls['nom'].touched">
+      Le champ nom est obligatoire
+    </div>
+   </div>
+
 
   <div>
     <label for="description">
       Description
     </label>
-    <input id="description" type="text" formControlName="description">
+    <input id="description" type="text"  formControlName="description">
+    <div *ngIf="registrationForm.controls['description'].invalid && registrationForm.controls['description'].touched">
+      Le champ description est obligatoire
+    </div>
   </div>
 
   <div>
     <label for="image">
       Image
     </label>
-    <input id="image" type="text" formControlName="image">
+    <input id="image" type="text"  formControlName="image">
+    <div *ngIf="registrationForm.controls['image'].invalid && registrationForm.controls['image'].touched">
+      Le champ image est invalid
+    </div>
   </div>
 
   <div>
     <label for="motsCles">
       Mots clés
     </label>
-    <input id="motsCles" type="text" formControlName="motsCles">
+    <input id="motsCles" type="text"  formControlName="motsCles">
+    <div *ngIf="registrationForm.controls['motsCles'].invalid && registrationForm.controls['motsCles'].touched">
+      Le champ mots clés est obligatoire
+    </div>
   </div>
 
-  <button class="button" type="submit">Add</button>
+  <button class="button" type="submit" [disabled]="registrationForm.invalid" >Add</button>
 
 </form>
